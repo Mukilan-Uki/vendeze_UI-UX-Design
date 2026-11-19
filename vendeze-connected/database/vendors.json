@@ -1,0 +1,931 @@
+[
+  {
+    "id": 1,
+    "ownerUserId": "v-owner-1",
+    "name": "Kallady Lens Co.",
+    "categoryId": "photo",
+    "area": "Kallady",
+    "rating": 4.8,
+    "reviewsCount": 62,
+    "priceFrom": 35000,
+    "priceUnit": null,
+    "blurb": "Candid + traditional coverage, same-week edited previews.",
+    "status": "active",
+    "unavailableDates": [
+      "2026-09-19",
+      "2026-10-03"
+    ],
+    "successRate": 92.3,
+    "revenueToDate": 237040,
+    "packages": [
+      {
+        "id": "pkg-1-1",
+        "name": "Half Day Coverage",
+        "price": 24500,
+        "inclusions": [
+          "Edited digital gallery",
+          "2 photographers",
+          "Online preview within 7 days"
+        ],
+        "supportsLaterPayment": true
+      },
+      {
+        "id": "pkg-1-2",
+        "name": "Full Day Coverage",
+        "price": 35000,
+        "inclusions": [
+          "Edited digital gallery",
+          "2 photographers",
+          "Online preview within 7 days"
+        ],
+        "supportsLaterPayment": true
+      },
+      {
+        "id": "pkg-1-3",
+        "name": "Full Day + Drone + Album",
+        "price": 49000,
+        "inclusions": [
+          "Edited digital gallery",
+          "2 photographers",
+          "Online preview within 7 days"
+        ],
+        "supportsLaterPayment": true
+      }
+    ],
+    "portfolio": [
+      {
+        "id": "pf-1-1",
+        "title": "Kallady Beach Wedding",
+        "mediaNote": "placeholder image asset"
+      },
+      {
+        "id": "pf-1-2",
+        "title": "Puliyanthivu Engagement Shoot",
+        "mediaNote": "placeholder image asset"
+      }
+    ],
+    "createdAt": "2025-09-01"
+  },
+  {
+    "id": 2,
+    "ownerUserId": "owner-2",
+    "name": "Puliyanthivu Frames",
+    "categoryId": "photo",
+    "area": "Puliyanthivu",
+    "rating": 4.6,
+    "reviewsCount": 41,
+    "priceFrom": 28000,
+    "priceUnit": null,
+    "blurb": "Two-photographer teams for full-day kovil weddings.",
+    "status": "active",
+    "unavailableDates": [
+      "2026-11-01",
+      "2026-12-05"
+    ],
+    "successRate": 89.0,
+    "revenueToDate": 429089,
+    "packages": [
+      {
+        "id": "pkg-2-1",
+        "name": "Half Day Coverage",
+        "price": 19600,
+        "inclusions": [
+          "Edited digital gallery",
+          "2 photographers",
+          "Online preview within 7 days"
+        ],
+        "supportsLaterPayment": true
+      },
+      {
+        "id": "pkg-2-2",
+        "name": "Full Day Coverage",
+        "price": 28000,
+        "inclusions": [
+          "Edited digital gallery",
+          "2 photographers",
+          "Online preview within 7 days"
+        ],
+        "supportsLaterPayment": true
+      },
+      {
+        "id": "pkg-2-3",
+        "name": "Full Day + Drone + Album",
+        "price": 39200,
+        "inclusions": [
+          "Edited digital gallery",
+          "2 photographers",
+          "Online preview within 7 days"
+        ],
+        "supportsLaterPayment": true
+      }
+    ],
+    "portfolio": [
+      {
+        "id": "pf-2-1",
+        "title": "Kallady Beach Wedding",
+        "mediaNote": "placeholder image asset"
+      },
+      {
+        "id": "pf-2-2",
+        "title": "Puliyanthivu Engagement Shoot",
+        "mediaNote": "placeholder image asset"
+      }
+    ],
+    "createdAt": "2025-09-01"
+  },
+  {
+    "id": 3,
+    "ownerUserId": "owner-3",
+    "name": "Manmunai Studio 7",
+    "categoryId": "photo",
+    "area": "Manmunai",
+    "rating": 4.4,
+    "reviewsCount": 19,
+    "priceFrom": 22000,
+    "priceUnit": null,
+    "blurb": "Budget-friendly packages with drone add-on.",
+    "status": "active",
+    "unavailableDates": [
+      "2026-09-19",
+      "2026-11-01"
+    ],
+    "successRate": 88.4,
+    "revenueToDate": 284643,
+    "packages": [
+      {
+        "id": "pkg-3-1",
+        "name": "Half Day Coverage",
+        "price": 15400,
+        "inclusions": [
+          "Edited digital gallery",
+          "2 photographers",
+          "Online preview within 7 days"
+        ],
+        "supportsLaterPayment": true
+      },
+      {
+        "id": "pkg-3-2",
+        "name": "Full Day Coverage",
+        "price": 22000,
+        "inclusions": [
+          "Edited digital gallery",
+          "2 photographers",
+          "Online preview within 7 days"
+        ],
+        "supportsLaterPayment": true
+      },
+      {
+        "id": "pkg-3-3",
+        "name": "Full Day + Drone + Album",
+        "price": 30800,
+        "inclusions": [
+          "Edited digital gallery",
+          "2 photographers",
+          "Online preview within 7 days"
+        ],
+        "supportsLaterPayment": true
+      }
+    ],
+    "portfolio": [
+      {
+        "id": "pf-3-1",
+        "title": "Kallady Beach Wedding",
+        "mediaNote": "placeholder image asset"
+      },
+      {
+        "id": "pf-3-2",
+        "title": "Puliyanthivu Engagement Shoot",
+        "mediaNote": "placeholder image asset"
+      }
+    ],
+    "createdAt": "2025-09-01"
+  },
+  {
+    "id": 4,
+    "ownerUserId": "v-owner-4",
+    "name": "Arayampathy Thoranam Works",
+    "categoryId": "decor",
+    "area": "Arayampathy",
+    "rating": 4.9,
+    "reviewsCount": 88,
+    "priceFrom": 45000,
+    "priceUnit": null,
+    "blurb": "Entrance festoons, mandap, and stage design specialists.",
+    "status": "active",
+    "unavailableDates": [
+      "2026-09-12",
+      "2026-09-19"
+    ],
+    "successRate": 89.0,
+    "revenueToDate": 575653,
+    "packages": [
+      {
+        "id": "pkg-4-1",
+        "name": "Standard Stage Setup",
+        "price": 36000,
+        "inclusions": [
+          "Stage backdrop",
+          "Entrance thoranam",
+          "Setup & teardown crew"
+        ],
+        "supportsLaterPayment": false
+      },
+      {
+        "id": "pkg-4-2",
+        "name": "Premium Stage + Entrance",
+        "price": 54000,
+        "inclusions": [
+          "Stage backdrop",
+          "Entrance thoranam",
+          "Setup & teardown crew"
+        ],
+        "supportsLaterPayment": false
+      }
+    ],
+    "portfolio": [
+      {
+        "id": "pf-4-1",
+        "title": "Lagoon-view Reception Stage",
+        "mediaNote": "placeholder image asset"
+      },
+      {
+        "id": "pf-4-2",
+        "title": "Traditional Entrance Thoranam",
+        "mediaNote": "placeholder image asset"
+      }
+    ],
+    "createdAt": "2025-09-01"
+  },
+  {
+    "id": 5,
+    "ownerUserId": "owner-5",
+    "name": "Kattankudy Floral House",
+    "categoryId": "decor",
+    "area": "Kattankudy",
+    "rating": 4.7,
+    "reviewsCount": 54,
+    "priceFrom": 30000,
+    "priceUnit": null,
+    "blurb": "Fresh-flower stage backdrops, jasmine garland work.",
+    "status": "active",
+    "unavailableDates": [
+      "2026-11-01",
+      "2026-12-05"
+    ],
+    "successRate": 89.4,
+    "revenueToDate": 287154,
+    "packages": [
+      {
+        "id": "pkg-5-1",
+        "name": "Standard Stage Setup",
+        "price": 24000,
+        "inclusions": [
+          "Stage backdrop",
+          "Entrance thoranam",
+          "Setup & teardown crew"
+        ],
+        "supportsLaterPayment": false
+      },
+      {
+        "id": "pkg-5-2",
+        "name": "Premium Stage + Entrance",
+        "price": 36000,
+        "inclusions": [
+          "Stage backdrop",
+          "Entrance thoranam",
+          "Setup & teardown crew"
+        ],
+        "supportsLaterPayment": false
+      }
+    ],
+    "portfolio": [
+      {
+        "id": "pf-5-1",
+        "title": "Lagoon-view Reception Stage",
+        "mediaNote": "placeholder image asset"
+      },
+      {
+        "id": "pf-5-2",
+        "title": "Traditional Entrance Thoranam",
+        "mediaNote": "placeholder image asset"
+      }
+    ],
+    "createdAt": "2025-09-01"
+  },
+  {
+    "id": 6,
+    "ownerUserId": "owner-6",
+    "name": "Lagoon Light & Decor",
+    "categoryId": "decor",
+    "area": "Kallady",
+    "rating": 4.3,
+    "reviewsCount": 27,
+    "priceFrom": 26000,
+    "priceUnit": null,
+    "blurb": "Fairy-light canopies and modern minimal setups.",
+    "status": "active",
+    "unavailableDates": [
+      "2026-11-01",
+      "2026-11-14"
+    ],
+    "successRate": 98.4,
+    "revenueToDate": 396074,
+    "packages": [
+      {
+        "id": "pkg-6-1",
+        "name": "Standard Stage Setup",
+        "price": 20800,
+        "inclusions": [
+          "Stage backdrop",
+          "Entrance thoranam",
+          "Setup & teardown crew"
+        ],
+        "supportsLaterPayment": false
+      },
+      {
+        "id": "pkg-6-2",
+        "name": "Premium Stage + Entrance",
+        "price": 31200,
+        "inclusions": [
+          "Stage backdrop",
+          "Entrance thoranam",
+          "Setup & teardown crew"
+        ],
+        "supportsLaterPayment": false
+      }
+    ],
+    "portfolio": [
+      {
+        "id": "pf-6-1",
+        "title": "Lagoon-view Reception Stage",
+        "mediaNote": "placeholder image asset"
+      },
+      {
+        "id": "pf-6-2",
+        "title": "Traditional Entrance Thoranam",
+        "mediaNote": "placeholder image asset"
+      }
+    ],
+    "createdAt": "2025-09-01"
+  },
+  {
+    "id": 7,
+    "ownerUserId": "v-owner-7",
+    "name": "Amma's Kitchen Catering",
+    "categoryId": "catering",
+    "area": "Kattankudy",
+    "rating": 4.9,
+    "reviewsCount": 103,
+    "priceFrom": 1200,
+    "priceUnit": "head",
+    "blurb": "Traditional Batticaloa wedding menu, live biryani counter.",
+    "status": "active",
+    "unavailableDates": [
+      "2026-09-12",
+      "2026-10-17"
+    ],
+    "successRate": 98.7,
+    "revenueToDate": 8094,
+    "packages": [
+      {
+        "id": "pkg-7-1",
+        "name": "Standard Menu",
+        "price": 1200,
+        "inclusions": [
+          "Live counters",
+          "Service staff",
+          "Crockery included"
+        ],
+        "supportsLaterPayment": false
+      },
+      {
+        "id": "pkg-7-2",
+        "name": "Premium Menu + Live Counter",
+        "price": 1600,
+        "inclusions": [
+          "Live counters",
+          "Service staff",
+          "Crockery included"
+        ],
+        "supportsLaterPayment": false
+      }
+    ],
+    "portfolio": [
+      {
+        "id": "pf-7-1",
+        "title": "300-guest Wedding Buffet",
+        "mediaNote": "placeholder image asset"
+      },
+      {
+        "id": "pf-7-2",
+        "title": "Kovil Festival Sweet Counter",
+        "mediaNote": "placeholder image asset"
+      }
+    ],
+    "createdAt": "2025-09-01"
+  },
+  {
+    "id": 8,
+    "ownerUserId": "owner-8",
+    "name": "Manmunai Banquet Caterers",
+    "categoryId": "catering",
+    "area": "Manmunai",
+    "rating": 4.5,
+    "reviewsCount": 46,
+    "priceFrom": 950,
+    "priceUnit": "head",
+    "blurb": "Buffet and plated service for 100-800 guests.",
+    "status": "active",
+    "unavailableDates": [
+      "2026-09-19",
+      "2026-12-05"
+    ],
+    "successRate": 91.2,
+    "revenueToDate": 7892,
+    "packages": [
+      {
+        "id": "pkg-8-1",
+        "name": "Standard Menu",
+        "price": 1000,
+        "inclusions": [
+          "Live counters",
+          "Service staff",
+          "Crockery included"
+        ],
+        "supportsLaterPayment": false
+      },
+      {
+        "id": "pkg-8-2",
+        "name": "Premium Menu + Live Counter",
+        "price": 1300,
+        "inclusions": [
+          "Live counters",
+          "Service staff",
+          "Crockery included"
+        ],
+        "supportsLaterPayment": false
+      }
+    ],
+    "portfolio": [
+      {
+        "id": "pf-8-1",
+        "title": "300-guest Wedding Buffet",
+        "mediaNote": "placeholder image asset"
+      },
+      {
+        "id": "pf-8-2",
+        "title": "Kovil Festival Sweet Counter",
+        "mediaNote": "placeholder image asset"
+      }
+    ],
+    "createdAt": "2025-09-01"
+  },
+  {
+    "id": 9,
+    "ownerUserId": "owner-9",
+    "name": "East Coast Sweets & Catering",
+    "categoryId": "catering",
+    "area": "Puliyanthivu",
+    "rating": 4.2,
+    "reviewsCount": 22,
+    "priceFrom": 800,
+    "priceUnit": "head",
+    "blurb": "Known for sweet counters and Eid/kovil festival catering.",
+    "status": "active",
+    "unavailableDates": [
+      "2026-09-12",
+      "2026-11-01"
+    ],
+    "successRate": 91.4,
+    "revenueToDate": 15246,
+    "packages": [
+      {
+        "id": "pkg-9-1",
+        "name": "Standard Menu",
+        "price": 800,
+        "inclusions": [
+          "Live counters",
+          "Service staff",
+          "Crockery included"
+        ],
+        "supportsLaterPayment": false
+      },
+      {
+        "id": "pkg-9-2",
+        "name": "Premium Menu + Live Counter",
+        "price": 1100,
+        "inclusions": [
+          "Live counters",
+          "Service staff",
+          "Crockery included"
+        ],
+        "supportsLaterPayment": false
+      }
+    ],
+    "portfolio": [
+      {
+        "id": "pf-9-1",
+        "title": "300-guest Wedding Buffet",
+        "mediaNote": "placeholder image asset"
+      },
+      {
+        "id": "pf-9-2",
+        "title": "Kovil Festival Sweet Counter",
+        "mediaNote": "placeholder image asset"
+      }
+    ],
+    "createdAt": "2025-09-01"
+  },
+  {
+    "id": 10,
+    "ownerUserId": "owner-10",
+    "name": "Nadaswaram Brothers",
+    "categoryId": "sound",
+    "area": "Arayampathy",
+    "rating": 4.8,
+    "reviewsCount": 37,
+    "priceFrom": 18000,
+    "priceUnit": null,
+    "blurb": "Traditional nadaswaram + thavil for temple processions.",
+    "status": "active",
+    "unavailableDates": [
+      "2026-09-12",
+      "2026-09-19"
+    ],
+    "successRate": 94.4,
+    "revenueToDate": 292007,
+    "packages": [
+      {
+        "id": "pkg-10-1",
+        "name": "PA + DJ, 4 hours",
+        "price": 18000,
+        "inclusions": [
+          "PA system",
+          "Wireless mics",
+          "Basic stage lighting"
+        ],
+        "supportsLaterPayment": false
+      },
+      {
+        "id": "pkg-10-2",
+        "name": "Full Sound + Lighting, Full Day",
+        "price": 27000,
+        "inclusions": [
+          "PA system",
+          "Wireless mics",
+          "Basic stage lighting"
+        ],
+        "supportsLaterPayment": false
+      }
+    ],
+    "portfolio": [
+      {
+        "id": "pf-10-1",
+        "title": "Temple Procession Nadaswaram Set",
+        "mediaNote": "placeholder image asset"
+      },
+      {
+        "id": "pf-10-2",
+        "title": "Reception Night DJ Set",
+        "mediaNote": "placeholder image asset"
+      }
+    ],
+    "createdAt": "2025-09-01"
+  },
+  {
+    "id": 11,
+    "ownerUserId": "owner-11",
+    "name": "Batti Beats DJ",
+    "categoryId": "sound",
+    "area": "Kallady",
+    "rating": 4.4,
+    "reviewsCount": 58,
+    "priceFrom": 25000,
+    "priceUnit": null,
+    "blurb": "Full PA, dance floor lighting, MC on request.",
+    "status": "active",
+    "unavailableDates": [
+      "2026-09-12",
+      "2026-10-03"
+    ],
+    "successRate": 94.0,
+    "revenueToDate": 175115,
+    "packages": [
+      {
+        "id": "pkg-11-1",
+        "name": "PA + DJ, 4 hours",
+        "price": 25000,
+        "inclusions": [
+          "PA system",
+          "Wireless mics",
+          "Basic stage lighting"
+        ],
+        "supportsLaterPayment": false
+      },
+      {
+        "id": "pkg-11-2",
+        "name": "Full Sound + Lighting, Full Day",
+        "price": 37500,
+        "inclusions": [
+          "PA system",
+          "Wireless mics",
+          "Basic stage lighting"
+        ],
+        "supportsLaterPayment": false
+      }
+    ],
+    "portfolio": [
+      {
+        "id": "pf-11-1",
+        "title": "Temple Procession Nadaswaram Set",
+        "mediaNote": "placeholder image asset"
+      },
+      {
+        "id": "pf-11-2",
+        "title": "Reception Night DJ Set",
+        "mediaNote": "placeholder image asset"
+      }
+    ],
+    "createdAt": "2025-09-01"
+  },
+  {
+    "id": 12,
+    "ownerUserId": "owner-12",
+    "name": "Kalyani Bridal Studio",
+    "categoryId": "makeup",
+    "area": "Puliyanthivu",
+    "rating": 4.9,
+    "reviewsCount": 71,
+    "priceFrom": 15000,
+    "priceUnit": null,
+    "blurb": "Bridal makeup, saree draping, trial session included.",
+    "status": "active",
+    "unavailableDates": [
+      "2026-09-12",
+      "2026-11-01"
+    ],
+    "successRate": 90.3,
+    "revenueToDate": 253295,
+    "packages": [
+      {
+        "id": "pkg-12-1",
+        "name": "Bridal Makeup Only",
+        "price": 15000,
+        "inclusions": [
+          "Trial session",
+          "HD makeup",
+          "Saree draping"
+        ],
+        "supportsLaterPayment": false
+      },
+      {
+        "id": "pkg-12-2",
+        "name": "Bridal + Family Package",
+        "price": 24000,
+        "inclusions": [
+          "Trial session",
+          "HD makeup",
+          "Saree draping"
+        ],
+        "supportsLaterPayment": false
+      }
+    ],
+    "portfolio": [
+      {
+        "id": "pf-12-1",
+        "title": "Bridal Look \u2014 Kalyani Wedding",
+        "mediaNote": "placeholder image asset"
+      },
+      {
+        "id": "pf-12-2",
+        "title": "Engagement Day Makeup",
+        "mediaNote": "placeholder image asset"
+      }
+    ],
+    "createdAt": "2025-09-01"
+  },
+  {
+    "id": 13,
+    "ownerUserId": "owner-13",
+    "name": "Manmunai Mehendi Art",
+    "categoryId": "makeup",
+    "area": "Manmunai",
+    "rating": 4.6,
+    "reviewsCount": 33,
+    "priceFrom": 6000,
+    "priceUnit": null,
+    "blurb": "Intricate bridal mehendi, guest hand-painting stalls.",
+    "status": "active",
+    "unavailableDates": [
+      "2026-10-03",
+      "2026-10-17"
+    ],
+    "successRate": 93.1,
+    "revenueToDate": 124650,
+    "packages": [
+      {
+        "id": "pkg-13-1",
+        "name": "Bridal Makeup Only",
+        "price": 6000,
+        "inclusions": [
+          "Trial session",
+          "HD makeup",
+          "Saree draping"
+        ],
+        "supportsLaterPayment": false
+      },
+      {
+        "id": "pkg-13-2",
+        "name": "Bridal + Family Package",
+        "price": 9600,
+        "inclusions": [
+          "Trial session",
+          "HD makeup",
+          "Saree draping"
+        ],
+        "supportsLaterPayment": false
+      }
+    ],
+    "portfolio": [
+      {
+        "id": "pf-13-1",
+        "title": "Bridal Look \u2014 Kalyani Wedding",
+        "mediaNote": "placeholder image asset"
+      },
+      {
+        "id": "pf-13-2",
+        "title": "Engagement Day Makeup",
+        "mediaNote": "placeholder image asset"
+      }
+    ],
+    "createdAt": "2025-09-01"
+  },
+  {
+    "id": 14,
+    "ownerUserId": "v-owner-14",
+    "name": "Kallady Lagoon Convention Hall",
+    "categoryId": "venue",
+    "area": "Kallady",
+    "rating": 4.7,
+    "reviewsCount": 96,
+    "priceFrom": 80000,
+    "priceUnit": null,
+    "blurb": "Air-conditioned hall for up to 500 guests, lagoon-view terrace for photos.",
+    "status": "active",
+    "unavailableDates": [
+      "2026-10-03",
+      "2026-12-05"
+    ],
+    "successRate": 90.7,
+    "revenueToDate": 710101,
+    "packages": [
+      {
+        "id": "pkg-14-1",
+        "name": "Hall Only",
+        "price": 80000,
+        "inclusions": [
+          "AC hall access",
+          "Basic seating",
+          "Parking"
+        ],
+        "supportsLaterPayment": false
+      },
+      {
+        "id": "pkg-14-2",
+        "name": "Hall + Catering Space + Parking",
+        "price": 100000,
+        "inclusions": [
+          "AC hall access",
+          "Basic seating",
+          "Parking"
+        ],
+        "supportsLaterPayment": false
+      }
+    ],
+    "portfolio": [
+      {
+        "id": "pf-14-1",
+        "title": "Evening Reception Setup",
+        "mediaNote": "placeholder image asset"
+      },
+      {
+        "id": "pf-14-2",
+        "title": "Daytime Wedding Layout",
+        "mediaNote": "placeholder image asset"
+      }
+    ],
+    "createdAt": "2025-09-01"
+  },
+  {
+    "id": 15,
+    "ownerUserId": "owner-15",
+    "name": "Puliyanthivu Grand Hall",
+    "categoryId": "venue",
+    "area": "Puliyanthivu",
+    "rating": 4.5,
+    "reviewsCount": 64,
+    "priceFrom": 65000,
+    "priceUnit": null,
+    "blurb": "Central town hall with in-house stage and parking for 100 vehicles.",
+    "status": "active",
+    "unavailableDates": [
+      "2026-09-19",
+      "2026-12-05"
+    ],
+    "successRate": 88.9,
+    "revenueToDate": 702259,
+    "packages": [
+      {
+        "id": "pkg-15-1",
+        "name": "Hall Only",
+        "price": 65000,
+        "inclusions": [
+          "AC hall access",
+          "Basic seating",
+          "Parking"
+        ],
+        "supportsLaterPayment": false
+      },
+      {
+        "id": "pkg-15-2",
+        "name": "Hall + Catering Space + Parking",
+        "price": 81200,
+        "inclusions": [
+          "AC hall access",
+          "Basic seating",
+          "Parking"
+        ],
+        "supportsLaterPayment": false
+      }
+    ],
+    "portfolio": [
+      {
+        "id": "pf-15-1",
+        "title": "Evening Reception Setup",
+        "mediaNote": "placeholder image asset"
+      },
+      {
+        "id": "pf-15-2",
+        "title": "Daytime Wedding Layout",
+        "mediaNote": "placeholder image asset"
+      }
+    ],
+    "createdAt": "2025-09-01"
+  },
+  {
+    "id": 16,
+    "ownerUserId": "owner-16",
+    "name": "Manmunai Garden Venue",
+    "categoryId": "venue",
+    "area": "Manmunai",
+    "rating": 4.3,
+    "reviewsCount": 29,
+    "priceFrom": 50000,
+    "priceUnit": null,
+    "blurb": "Open-air lawn venue, ideal for evening receptions with fairy-light setup.",
+    "status": "active",
+    "unavailableDates": [
+      "2026-10-03",
+      "2026-10-17"
+    ],
+    "successRate": 96.0,
+    "revenueToDate": 530350,
+    "packages": [
+      {
+        "id": "pkg-16-1",
+        "name": "Hall Only",
+        "price": 50000,
+        "inclusions": [
+          "AC hall access",
+          "Basic seating",
+          "Parking"
+        ],
+        "supportsLaterPayment": false
+      },
+      {
+        "id": "pkg-16-2",
+        "name": "Hall + Catering Space + Parking",
+        "price": 62500,
+        "inclusions": [
+          "AC hall access",
+          "Basic seating",
+          "Parking"
+        ],
+        "supportsLaterPayment": false
+      }
+    ],
+    "portfolio": [
+      {
+        "id": "pf-16-1",
+        "title": "Evening Reception Setup",
+        "mediaNote": "placeholder image asset"
+      },
+      {
+        "id": "pf-16-2",
+        "title": "Daytime Wedding Layout",
+        "mediaNote": "placeholder image asset"
+      }
+    ],
+    "createdAt": "2025-09-01"
+  }
+]

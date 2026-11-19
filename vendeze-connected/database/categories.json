@@ -1,0 +1,8 @@
+[
+  { "id": "photo", "name": "Photography", "note": "Weddings, engagements, kovil functions", "icon": "camera" },
+  { "id": "catering", "name": "Catering", "note": "Full menus, live counters, sweets", "icon": "plate" },
+  { "id": "venue", "name": "Venue", "note": "Halls, lawns and convention centres", "icon": "building" },
+  { "id": "makeup", "name": "Makeup Artist", "note": "Bridal & event makeup, saree draping, mehendi", "icon": "gem" },
+  { "id": "sound", "name": "Sound & Music", "note": "DJ, live band, nadaswaram, PA systems", "icon": "music" },
+  { "id": "decor", "name": "Decoration", "note": "Stage, floral, thoranam & entrance work", "icon": "sparkle" }
+]

@@ -1,0 +1,16 @@
+[
+  { "id": "u1", "name": "Kavya Selvam", "email": "kavya.selvam@gmail.com", "phone": "+94 77 123 4501", "avatarInitials": "KS", "role": "customer", "authProvider": "google", "createdAt": "2026-02-11" },
+  { "id": "u2", "name": "Aravind Kumaran", "email": "aravind.k@gmail.com", "phone": "+94 77 123 4502", "avatarInitials": "AK", "role": "customer", "authProvider": "google", "createdAt": "2026-05-03" },
+  { "id": "u3", "name": "Nila Rajendran", "email": "nila.raj@gmail.com", "phone": "+94 77 123 4503", "avatarInitials": "NR", "role": "customer", "authProvider": "google", "createdAt": "2026-06-22" },
+
+  { "id": "v-owner-1", "name": "Dinesh Kallady", "email": "dinesh@kalladylens.lk", "phone": "+94 65 222 1101", "avatarInitials": "DK", "role": "vendor", "authProvider": "password", "createdAt": "2025-11-04" },
+  { "id": "v-owner-4", "name": "Selvi Arayampathy", "email": "selvi@thoranamworks.lk", "phone": "+94 65 222 1104", "avatarInitials": "SA", "role": "vendor", "authProvider": "password", "createdAt": "2025-09-18" },
+  { "id": "v-owner-7", "name": "Amma's Kitchen Team", "email": "orders@ammaskitchen.lk", "phone": "+94 65 222 1107", "avatarInitials": "AK", "role": "vendor", "authProvider": "password", "createdAt": "2025-08-02" },
+  { "id": "v-owner-14", "name": "Kallady Hall Management", "email": "bookings@kalladyhall.lk", "phone": "+94 65 222 1114", "avatarInitials": "KH", "role": "vendor", "authProvider": "password", "createdAt": "2025-07-15" },
+
+  { "id": "p1", "name": "Suresh Manmunai", "email": "suresh.plans@gmail.com", "phone": "+94 77 999 2201", "avatarInitials": "SM", "role": "event_planner", "authProvider": "google", "createdAt": "2026-01-20" },
+
+  { "id": "a1", "name": "Platform Admin", "email": "admin@thoranam.lk", "phone": "+94 65 222 0001", "avatarInitials": "PA", "role": "admin", "authProvider": "password", "createdAt": "2025-06-01" },
+
+  { "id": "d1", "name": "Thoranam Dev Team", "email": "dev@thoranam.lk", "phone": "", "avatarInitials": "TD", "role": "developer", "authProvider": "password", "createdAt": "2025-06-01" }
+]

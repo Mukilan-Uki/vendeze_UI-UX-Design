@@ -1,0 +1,19 @@
+{
+  "passed": 12,
+  "minimumIntroMs": 2800,
+  "observedDocumentElapsedMs": 3432,
+  "checks": [
+    "Logo appears before the name",
+    "Name slides out from beside the logo",
+    "Full Vendeze wordmark is revealed",
+    "Brand introduction fits a phone",
+    "Skip intro immediately reveals the page",
+    "Application remains usable after skipping the intro",
+    "Longer introduction stays visible, then reveals the homepage",
+    "Navigating between screens does not replay the intro",
+    "Reduced-motion preference bypasses the animated wait",
+    "A failed application script has a visible recovery screen",
+    "Loading failure explains what happened",
+    "Loading failure offers a reload action"
+  ]
+}

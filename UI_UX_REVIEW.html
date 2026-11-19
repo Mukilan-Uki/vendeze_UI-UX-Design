@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>Vendeze — UI/UX review</title>
+<style>
+  :root{color-scheme:light;--ink:#8e0413;--paper:#f3f4f6;--surface:#fff8f8;--line:#d9c6c8;--body:#392c2e}
+  *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--body);font:16px/1.6 system-ui,sans-serif}
+  a{color:var(--ink);text-underline-offset:4px}a:focus-visible,summary:focus-visible{outline:3px solid var(--ink);outline-offset:5px}
+  .skip{position:absolute;left:16px;top:-100px;background:white;padding:12px;z-index:10}.skip:focus{top:8px}
+  header,main,footer{max-width:1180px;margin:auto;padding:24px}header{display:flex;justify-content:space-between;align-items:center;gap:20px}
+  .brand{font-weight:850;font-size:26px;color:var(--ink);letter-spacing:-1px}.meta,.muted{font-size:14px;color:#66565a}
+  .hero{padding:48px;border:1px solid var(--line);border-radius:28px;background:radial-gradient(ellipse at 15% 0%,#f3c5c5,transparent 70%),var(--surface)}
+  .eyebrow{color:var(--ink);font-size:12px;font-weight:750;letter-spacing:1.6px;text-transform:uppercase;margin:0 0 12px}
+  h1{max-width:750px;font-size:clamp(34px,5vw,58px);line-height:1.08;letter-spacing:-2px;color:var(--ink);margin:0 0 20px}
+  h2{color:var(--ink);font-size:28px;line-height:1.2;letter-spacing:-.6px;margin:0 0 12px}p{margin:0 0 16px}.intro{max-width:690px;font-size:18px}
+  .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}.button{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:10px 22px;border:1px solid var(--ink);border-radius:99px;color:var(--ink);text-decoration:none;font-weight:650;background:#fff}
+  .button.primary{background:var(--ink);color:#fff9f9}.button:hover{background:#f7e0e2}.button.primary:hover{background:#720310}
+  .numbers{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:24px 0 42px}.number{background:white;border:1px solid var(--line);border-radius:20px;padding:22px}.number strong{display:block;color:var(--ink);font-size:32px;letter-spacing:-1px;line-height:1.3}
+  section{margin:0 0 42px}.split{display:grid;grid-template-columns:.85fr 1.15fr;gap:32px;align-items:center}.shot{display:block;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--surface)}.shot img{display:block;width:100%;height:auto}
+  .frames{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:24px 0 16px}figure{margin:0}.frame{height:160px;overflow:hidden;position:relative;border:1px solid var(--line);border-radius:16px;background:var(--paper)}.frame img{position:absolute;width:200%;max-width:none;left:-50%;top:50%;transform:translateY(-50%)}figcaption{padding:10px 2px;font-weight:650;color:var(--ink)}
+  .panel{background:white;border:1px solid var(--line);border-radius:22px;padding:28px}ul,ol{padding-left:23px}li{margin:8px 0}.two{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .table-wrap{overflow:auto;border:1px solid var(--line);border-radius:18px;background:white}table{width:100%;border-collapse:collapse;text-align:left}th,td{padding:13px 20px;border-bottom:1px solid #eee3e5}th{background:var(--surface);color:var(--ink)}tr:last-child td,tr:last-child th{border-bottom:0}td a{display:inline-block;padding:7px 0}
+  details{margin-top:20px}summary{cursor:pointer;color:var(--ink);font-weight:700;padding:12px 0}.status{display:inline-block;background:white;border:1px solid var(--line);border-radius:99px;padding:5px 12px;font-size:13px;margin-bottom:22px}
+  footer{border-top:1px solid var(--line);font-size:14px;padding-top:24px;padding-bottom:36px}
+  @media(max-width:700px){header{flex-wrap:wrap}.hero{padding:28px 24px}h1{letter-spacing:-1px}.numbers,.frames,.split,.two{grid-template-columns:1fr}.numbers{gap:10px}.number{padding:16px 22px}.number strong{font-size:28px}.frame{height:170px}header,main,footer{padding-left:18px;padding-right:18px}th,td{padding:10px 14px}.panel{padding:24px}}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<a class="skip" href="#review">Skip to review</a>
+<header><div class="brand">vendeze</div><div class="meta">Review candidate 15 · 19 November 2026</div></header>
+<main id="review">
+  <section class="hero" aria-labelledby="title">
+    <div class="status">Awaiting tech lead review</div>
+    <p class="eyebrow">UI / UX handoff</p>
+    <h1 id="title">Ready for a closer look.</h1>
+    <p class="intro">The complete Vendeze frontend, with a thoughtful 404, a logo-first loading introduction, and refinements to navigation, accessibility, and phone interactions.</p>
+    <p>The approved burgundy, blush surfaces, soft homepage fade, and icon-only Ask AI treatment are preserved.</p>
+    <div class="actions">
+      <a class="button primary" href="vendeze-connected/?preview=1&amp;v=15#/" target="_blank" rel="noopener">Open website preview ↗</a>
+      <a class="button" href="TECH_LEAD_REVIEW.md">Reviewer notes</a>
+    </div>
+    <p class="muted" style="margin-top:18px;margin-bottom:0">The preview uses isolated sample data. Keep <code>?preview=1</code> in the URL.</p>
+  </section>
+  <div class="numbers" aria-label="Verification results">
+    <div class="number"><strong>276</strong>checks passed across journeys, layouts, keyboard interactions, and loading.</div>
+    <div class="number"><strong>42</strong>automated accessibility scans, with zero violations under the rules checked.</div>
+    <div class="number"><strong>19</strong>screens captured at desktop and phone sizes.</div>
+  </div>
+  <section class="split" aria-labelledby="detour-title">
+    <div><p class="eyebrow">A useful wrong turn</p><h2 id="detour-title">“A detour isn’t the end of the story.”</h2><p>A winding path, the Vendeze mark, and a quiet thought make the missing-page screen feel part of the brand. Clear actions lead back home or into vendor discovery.</p><a href="vendeze-connected/?preview=1&amp;v=15#/review-missing-page" target="_blank" rel="noopener">Try the 404 and its recovery actions ↗</a></div>
+    <a class="shot" href="design-review/final-ui-review/not-found-desktop.png"><img src="design-review/final-ui-review/not-found-desktop.png" alt="Vendeze 404 with a winding path illustration and home and vendor discovery actions" width="1440" loading="lazy"></a>
+  </section>
+  <section aria-labelledby="loading-title">
+    <p class="eyebrow">An introduction with character</p><h2 id="loading-title">The logo arrives. The name follows.</h2>
+    <p>The mark appears first; the name then slides out from beside it. The introduction stays visible for about three seconds, including a pause on the complete name. Skip intro, reduced-motion support, and a loading-failure recovery keep the sequence usable.</p>
+    <div class="frames">
+      <figure><a class="frame shot" href="design-review/final-ui-review/loader-01-mark.png"><img src="design-review/final-ui-review/loader-01-mark.png" alt="First loading stage: the Vendeze mark appears" loading="lazy"></a><figcaption>01 · Logo</figcaption></figure>
+      <figure><a class="frame shot" href="design-review/final-ui-review/loader-02-reveal.png"><img src="design-review/final-ui-review/loader-02-reveal.png" alt="Second loading stage: the Vendeze name emerges beside the mark" loading="lazy"></a><figcaption>02 · Reveal</figcaption></figure>
+      <figure><a class="frame shot" href="design-review/final-ui-review/loader-03-name.png"><img src="design-review/final-ui-review/loader-03-name.png" alt="Third loading stage: the full Vendeze wordmark is visible" loading="lazy"></a><figcaption>03 · Name</figcaption></figure>
+    </div>
+    <p class="muted">These are still frames. Refresh the website preview to review the motion. In-app navigation stays immediate. <a href="design-review/final-ui-review/loader-mobile.png">Phone loading</a> · <a href="design-review/final-ui-review/loading-recovery-mobile.png">Failure recovery</a></p>
+  </section>
+  <section class="two" aria-label="Interaction changes and review walkthrough">
+    <div class="panel"><h2>Small details, smoother journeys.</h2><ul><li>Independent links and save controls on vendor cards.</li><li>Keyboard navigation for sign-in tabs, event choices, packages, and payment options.</li><li>Clear field errors associated with their inputs.</li><li>Reliable notification state, dialog focus, and focus after navigation.</li><li>Consistent headings, labelled regions, and larger phone save controls.</li><li>Ask AI stays a sparkle beside Search, labelled on hover or keyboard focus. It has no popup or page.</li></ul></div>
+    <div class="panel"><h2>Start with the full journey.</h2><ol><li>Plan an event, then browse and search vendors.</li><li>Save a vendor, inspect packages, and build a hold list.</li><li>Try validation and complete the sample checkout.</li><li>Review bookings, account details, and notifications.</li><li>Use the sign-in demo picker to inspect staff workspaces.</li><li>Check missing-page recovery and repeat on a phone.</li></ol><a href="vendeze-connected/?preview=1&amp;v=15#/login" target="_blank" rel="noopener">Open sign-in and demo accounts ↗</a></div>
+  </section>
+  <section aria-labelledby="gallery-title">
+    <h2 id="gallery-title">Screen gallery</h2><p>Open a capture for a closer look. Use the live preview to judge interactions.</p>
+    <div class="table-wrap" role="region" aria-label="Desktop and mobile screen captures" tabindex="0"><table><thead><tr><th scope="col">Screen</th><th scope="col">Desktop</th><th scope="col">Phone</th></tr></thead><tbody id="screen-gallery">
+      <tr><th scope="row">Homepage</th><td><a href="design-review/final-ui-review/home-desktop.png">Desktop homepage</a></td><td><a href="design-review/final-ui-review/home-mobile.png">Phone homepage</a></td></tr>
+      <tr><th scope="row">Search</th><td><a href="design-review/final-ui-review/search-desktop.png">Desktop search</a></td><td><a href="design-review/final-ui-review/search-mobile.png">Phone search</a></td></tr>
+      <tr><th scope="row">Event form</th><td><a href="design-review/final-ui-review/event-desktop.png">Desktop event form</a></td><td><a href="design-review/final-ui-review/event-mobile.png">Phone event form</a></td></tr>
+      <tr><th scope="row">Services</th><td><a href="design-review/final-ui-review/services-desktop.png">Desktop services</a></td><td><a href="design-review/final-ui-review/services-mobile.png">Phone services</a></td></tr>
+      <tr><th scope="row">Category</th><td><a href="design-review/final-ui-review/category-desktop.png">Desktop category</a></td><td><a href="design-review/final-ui-review/category-mobile.png">Phone category</a></td></tr>
+      <tr><th scope="row">Vendor detail</th><td><a href="design-review/final-ui-review/vendor-desktop.png">Desktop vendor detail</a></td><td><a href="design-review/final-ui-review/vendor-mobile.png">Phone vendor detail</a></td></tr>
+      <tr><th scope="row">Saved vendors</th><td><a href="design-review/final-ui-review/saved-desktop.png">Desktop saved vendors</a></td><td><a href="design-review/final-ui-review/saved-mobile.png">Phone saved vendors</a></td></tr>
+      <tr><th scope="row">Hold list</th><td><a href="design-review/final-ui-review/hold-list-desktop.png">Desktop hold list</a></td><td><a href="design-review/final-ui-review/hold-list-mobile.png">Phone hold list</a></td></tr>
+      <tr><th scope="row">Checkout</th><td><a href="design-review/final-ui-review/checkout-desktop.png">Desktop checkout</a></td><td><a href="design-review/final-ui-review/checkout-mobile.png">Phone checkout</a></td></tr>
+      <tr><th scope="row">Confirmation</th><td><a href="design-review/final-ui-review/confirmation-desktop.png">Desktop confirmation</a></td><td><a href="design-review/final-ui-review/confirmation-mobile.png">Phone confirmation</a></td></tr>
+      <tr><th scope="row">Bookings</th><td><a href="design-review/final-ui-review/bookings-desktop.png">Desktop bookings</a></td><td><a href="design-review/final-ui-review/bookings-mobile.png">Phone bookings</a></td></tr>
+      <tr><th scope="row">Profile</th><td><a href="design-review/final-ui-review/profile-desktop.png">Desktop profile</a></td><td><a href="design-review/final-ui-review/profile-mobile.png">Phone profile</a></td></tr>
+      <tr><th scope="row">Sign in</th><td><a href="design-review/final-ui-review/login-desktop.png">Desktop sign in</a></td><td><a href="design-review/final-ui-review/login-mobile.png">Phone sign in</a></td></tr>
+      <tr><th scope="row">Vendor signup</th><td><a href="design-review/final-ui-review/signup-desktop.png">Desktop vendor signup</a></td><td><a href="design-review/final-ui-review/signup-mobile.png">Phone vendor signup</a></td></tr>
+      <tr><th scope="row">Vendor dashboard</th><td><a href="design-review/final-ui-review/vendor-dashboard-desktop.png">Desktop vendor dashboard</a></td><td><a href="design-review/final-ui-review/vendor-dashboard-mobile.png">Phone vendor dashboard</a></td></tr>
+      <tr><th scope="row">Admin</th><td><a href="design-review/final-ui-review/admin-desktop.png">Desktop admin</a></td><td><a href="design-review/final-ui-review/admin-mobile.png">Phone admin</a></td></tr>
+      <tr><th scope="row">Marketing</th><td><a href="design-review/final-ui-review/marketing-desktop.png">Desktop marketing</a></td><td><a href="design-review/final-ui-review/marketing-mobile.png">Phone marketing</a></td></tr>
+      <tr><th scope="row">Developer</th><td><a href="design-review/final-ui-review/developer-desktop.png">Desktop developer</a></td><td><a href="design-review/final-ui-review/developer-mobile.png">Phone developer</a></td></tr>
+      <tr><th scope="row">Missing page</th><td><a href="design-review/final-ui-review/not-found-desktop.png">Desktop missing page</a></td><td><a href="design-review/final-ui-review/not-found-mobile.png">Phone missing page</a></td></tr>
+    </tbody></table></div>
+  </section>
+  <section class="panel" aria-labelledby="evidence-title">
+    <h2 id="evidence-title">Evidence and review boundary</h2>
+    <p>The main responsive checks cover widths of 360, 390, 768, 1024, and 1440 pixels. Additional 320-pixel checks cover key small-screen forms and recovery. Chrome on Windows was used; Safari, Firefox, and physical devices still need release testing.</p>
+    <p>This is a frontend UI/UX candidate. Backend persistence, real availability, payments, authentication, and message delivery were not validated. Automated accessibility results supplement human review and do not constitute certification. Photos and listings are sample content.</p>
+    <details><summary>Open verification reports</summary><ul><li><a href="design-review/final-ui-review/verification.json">228 journey and layout checks</a></li><li><a href="design-review/final-ui-review/interaction-verification.json">36 keyboard and recovery checks</a></li><li><a href="design-review/final-ui-review/intro-verification.json">12 loading-sequence checks</a></li><li><a href="design-review/final-ui-review/accessibility.json">42 accessibility scans</a></li></ul></details>
+    <p style="margin-top:20px;margin-bottom:0">Record approval or required revisions in <a href="TECH_LEAD_REVIEW.md">the tech lead review notes</a>. See <a href="UI_UX_HANDOFF.md">the implementation handoff</a> for source details.</p>
+  </section>
+</main>
+<footer>Vendeze · UI/UX review candidate 15 · Prepared for design review, with final approval pending.</footer>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Vendeze — Plan · Book · Celebrate</title>
+<meta name="theme-color" content="#f3f4f6" />
+<meta name="description" content="Vendeze — Batticaloa's event vendor marketplace. Find, compare and book photographers, caterers, venues, decor, makeup and music for your event." />
+<meta property="og:title" content="Vendeze — Plan · Book · Celebrate" />
+<meta property="og:description" content="Batticaloa's event vendor marketplace. Every vendor for your day, in one place." />
+<meta property="og:image" content="icons/icon-512.png" />
+<meta property="og:type" content="website" />
+<link rel="manifest" href="manifest.json" />
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="64x64" href="icons/favicon-64.png" />
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script>
+  document.documentElement.classList.add('is-booting');
+  window.VENDEZE_BOOT_TIMEOUT = setTimeout(() => {
+    document.documentElement.classList.remove('is-booting');
+    const loader = document.getElementById('brandLoader');
+    if (loader) loader.hidden = true;
+  }, 7000);
+</script>
+<link rel="preload" as="image" href="icons/logo-mark-dark.png">
+<link rel="preload" as="image" href="icons/logo-word-dark.png">
+<link rel="stylesheet" href="site-design.css?v=15">
+</head>
+<body>
+<svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute;pointer-events:none;">
+  <defs>
+    <filter id="vendeze-brand-ink" color-interpolation-filters="sRGB"><feFlood flood-color="var(--brand-ink)"/><feComposite in2="SourceGraphic" operator="in"/></filter>
+    <filter id="vendeze-brand-light" color-interpolation-filters="sRGB"><feFlood flood-color="var(--brand-on-ink)"/><feComposite in2="SourceGraphic" operator="in"/></filter>
+  </defs>
+</svg>
+<div class="brand-loader" id="brandLoader" role="status" aria-label="Loading Vendeze">
+  <div class="brand-loader-content">
+    <div class="brand-loader-lockup" aria-hidden="true">
+      <img class="brand-loader-mark" src="icons/logo-mark-dark.png" alt="" width="54" height="70">
+      <span class="brand-loader-word-window"><img class="brand-loader-word" src="icons/logo-word-dark.png" alt="" width="208" height="28"></span>
+    </div>
+    <p class="brand-loader-caption" aria-hidden="true">Plan. Book. Celebrate.</p>
+  </div>
+  <button class="brand-loader-skip" id="skipBrandIntro" type="button">Skip intro</button>
+</div>
+<a class="skip-link" href="#app">Skip to content</a>
+<script src="brand-loader.js?v=15"></script>
+
+<div id="appShell">
+
+<header class="header" id="mainHeader">
+  <div class="header-inner">
+    <button class="logo-btn" data-action="go-home" aria-label="Vendeze home">
+      <img class="logo-mark" src="icons/logo-mark-dark.png" alt="" width="26" height="34" />
+      <img class="logo-word" src="icons/logo-word-dark.png" alt="Vendeze" width="112" height="14" />
+    </button>
+    <nav id="headerNav" class="header-nav" aria-label="Main"></nav>
+    <div id="marketplaceHeaderActions" class="marketplace-header-actions"></div>
+    <div class="header-right">
+      <div class="notif-wrap">
+        <button class="notif-btn" id="notifBtn" data-action="toggle-notifications" aria-label="Notifications" aria-controls="notifPanel" aria-expanded="false">
+          <span id="notifIcon"></span>
+          <span id="notifBadge" class="notif-badge" style="display:none;"></span>
+        </button>
+        <div id="notifPanel" class="notif-panel" role="region" aria-label="Notifications" style="display:none;"></div>
+      </div>
+      <button class="cart-btn" id="cartBtn" data-action="cart" aria-label="Hold list">
+        <span id="cartIcon"></span>
+        <span id="cartCount">0</span>
+      </button>
+      <button class="profile-chip" id="profileChip" data-action="profile" aria-label="Profile"></button>
+    </div>
+  </div>
+</header>
+
+<div id="summaryBarSlot"></div>
+<main id="app" tabindex="-1"><div class="app-load-fallback" data-app-fallback><h1>Good things take a moment.</h1><p>If Vendeze takes longer than expected, please refresh this page.</p><a class="marketplace-button" href="">Refresh Vendeze</a></div></main>
+<div id="bottomNavSlot"></div>
+<div id="popupSlot"></div>
+
+</div>
+
+<noscript><p style="padding:24px;font-family:sans-serif;">Vendeze needs JavaScript turned on to work.</p></noscript>
+
+<script>
+  // Points the front end at your running Spring Boot API. Override this
+  // before script.js loads if the backend is hosted somewhere else.
+  window.VENDEZE_UI_PREVIEW = new URLSearchParams(location.search).get('preview') === '1';
+  window.VENDEZE_API_BASE = window.VENDEZE_API_BASE || 'http://localhost:8080';
+</script>
+<script src="api.js"></script>
+<script src="ui-design.js?v=15"></script>
+<script src="homepage-design.js?v=15"></script>
+<script src="script.js?v=15"></script>
+<script>
+if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('service-worker.js').catch(() => {});
+  });
+}
+</script>
+</body>
+</html>
