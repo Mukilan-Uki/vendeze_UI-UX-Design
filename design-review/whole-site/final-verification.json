@@ -1,0 +1,12 @@
+{
+  "galleryScreens": 19,
+  "screenshotFiles": 38,
+  "galleryPhoneToggle": true,
+  "galleryStaffFilter": true,
+  "mobileGalleryFits": true,
+  "innerPageNavbar": true,
+  "openNotificationsPinNavbar": true,
+  "resizeNotifications": true,
+  "offlineSharedStyles": true,
+  "runtimeErrors": []
+}

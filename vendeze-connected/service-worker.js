@@ -4,9 +4,11 @@
    - Images/icons: cache-first (they rarely change).
    - API calls and other origins are never cached — stale bookings or
      vendor data would be worse than no data. */
-const CACHE_NAME = "vendeze-ui-v15";
+const CACHE_NAME = "vendeze-ui-v20";
 const APP_SHELL = [
-  "./", "./index.html", "./site-design.css?v=15", "./brand-loader.js?v=15", "./ui-design.js?v=15", "./homepage-design.js?v=15", "./script.js?v=15", "./api.js", "./manifest.json",
+  "./", "./index.html", "./site-design.css?v=20", "./homepage-design.css?v=20", "./app-design.css?v=20", "./navigation.css?v=20", "./navigation.js?v=20", "./brand-loader.js?v=20", "./ui-design.js?v=20", "./homepage-design.js?v=20", "./script.js?v=20", "./api.js", "./manifest.json",
+  "./assets/party.jpg", "./assets/dance.jpg", "./assets/birthday.jpg",
+  "./assets/venue.jpg", "./assets/dining.jpg", "./assets/florals.jpg", "./assets/celebration.jpg",
   "./icons/icon-192.png", "./icons/icon-512.png", "./icons/favicon-32.png",
   "./icons/logo-mark-white.png", "./icons/logo-word-white.png", "./icons/logo-full-white.png",
   "./icons/logo-mark-dark.png", "./icons/logo-word-dark.png",

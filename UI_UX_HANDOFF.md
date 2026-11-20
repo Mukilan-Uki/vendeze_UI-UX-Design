@@ -1,62 +1,54 @@
 # Vendeze UI/UX handoff
 
-**Review candidate 15 | 19 November 2026 | Awaiting tech lead review**
+**Review version 20 | 20 November 2026 | Shared expanding navigation**
 
-The customer and staff frontend has completed the UI/UX polish and verification pass. Open [the review hub](http://127.0.0.1:8005/UI_UX_REVIEW.html), read [the tech lead notes and decision checklist](TECH_LEAD_REVIEW.md), or browse [the current desktop/phone gallery](design-review/final-ui-review/README.md).
+The Partiful-inspired design now covers the customer, account, and staff screens. Burgundy (`#8E0413`) is the primary color throughout. Open the [interactive screen gallery](http://127.0.0.1:8005/design-review/whole-site/) or [the website](http://127.0.0.1:8005/vendeze-connected/?preview=1#/).
 
-The shareable package is `design-review/Vendeze-UI-UX-Review-v15.zip`. Extract it, double-click `START_UI_REVIEW.cmd`, and open the local review hub. Python is the only prerequisite; the frontend needs no installation or build step.
+## Design and scope
 
-## Final appearance and behavior
+The shared system combines floating rounded navigation, Anton display headings, DM Sans body text, burgundy banners, colorful service cards, white forms, blush selections, and deep burgundy booking summaries. Customer, account, and staff pages share the navigation, typography, controls, surfaces, and footer.
 
-The approved layouts retain burgundy (`#8E0413`) text and primary buttons, blush surfaces, a light neutral background (`#F3F4F6`), and the soft fading homepage glow. Controls, icons, borders, overlays, and logos share the palette in `site-design.css`.
+The work covers all 19 screens: home, event form, services, category, vendor, search, saved vendors, hold list, checkout, confirmation, bookings, profile, sign-in, sign-up, recovery, vendor dashboard, admin, marketing, and developer workspace.
 
-The initial loading introduction shows the logo first, then slides the Vendeze name out beside it. A 2.8-second minimum plus the brief fade gives approximately three seconds to see the sequence. Skip intro, Escape, reduced motion, and failure/timeout recovery keep the page accessible. The introduction runs once per document load and does not replay during in-app navigation.
+Every route, including sign-in and staff pages, now renders one shared navbar. Explore, Plan an event, Your plans, For businesses, and account controls open detailed panels. The shell expands in width and height with a 340 ms transition. Desktop panels show links on the left and a photograph, title, and short description on the right; phones stack the feature card below scrollable links. Hover, click, touch, arrow keys, and Escape are supported. Menus close on navigation and outside clicks, and Escape restores keyboard focus. Business and account links reflect the signed-in role.
 
-The 404 combines a winding path and the Vendeze mark with the thought that a detour is not the end of the story. Clear home and vendor-discovery actions provide recovery. Missing routes, vendors, and categories use the same screen.
+The navbar slides away on downward scrolling and returns on upward scrolling with a 280 ms transition. It stays visible near the top, during keyboard focus, and while a menu or notification panel is open. Reduced-motion users receive stable navigation. Notification placement accounts for the floating navbar on desktop and phones.
 
-The homepage sparkle icon remains beside Search. **Ask AI** appears only on hover or keyboard focus. This is intentionally a UI-only control with no popup, separate page, search submission, or AI request.
-
-## Interaction and accessibility refinements
-
-- Vendor images, names, and Explore are native links, with an independent save button and larger phone save targets.
-- Heading structure, region labels, notification state, and keyboard-accessible scrolling regions were corrected.
-- Navigation moves focus to the page heading or the requested search field.
-- Sign-in tabs and event/package/payment choices support keyboard navigation.
-- Field errors are associated with their controls, and invalid markers clear when corrected.
-- The welcome dialog contains keyboard focus and restores focus when dismissed.
+Existing event, vendor, booking, account, and staff actions remain connected. Keyboard focus, validation, role guards, and isolated preview storage remain intact. The existing Ask AI icon remains a UI-only control.
 
 ## Verification
 
-**276 checks passed:** 228 journey/layout checks, 36 keyboard/recovery checks, and 12 loading checks. **42 axe-core scans reported zero violations** under the selected accessibility rules. No browser runtime errors, failed local assets, or backend requests occurred during the preview journey checks. Changed JavaScript files passed syntax checks.
+- **267 customer/staff journey and responsive checks passed**, covering 320, 360, 390, 768, 1024, and 1440 pixels.
+- **42 axe-core scans reported zero violations** under the selected WCAG and best-practice rules.
+- **141 expanded-navbar checks and nine accessibility scans passed**, including touch navigation and an offline reload; see [the navbar verification report](design-review/whole-site/navbar-verification.json). The earlier version 19 homepage review is retained as historical evidence.
+- No browser runtime errors, failed local assets, or backend requests occurred in the isolated preview reviews.
+- Changed JavaScript files passed syntax checks, and `git diff --check` passed.
 
-The main viewport matrix covers 360, 390, 768, 1024, and 1440 pixels, with additional 320-pixel checks for selected forms and recovery screens. Nineteen screens have desktop and phone captures. The JSON reports and screenshots are in [the final review folder](design-review/final-ui-review/README.md).
+The journey review exercises event creation, package selection, messaging, saving, holding and undo, checkout validation, preview booking, account controls, vendor acceptance, marketing controls, notifications, and staff routing. Testing used Chrome and sample data; real authentication, payment collection, backend persistence, and physical-device browser behavior were not exercised.
 
-Tests used Chrome on Windows. Automated accessibility checks are not certification; motion, image overlays, content quality, Safari/Firefox, and physical phone behavior still require human release review.
+## Review artifacts
+
+- [Desktop/phone gallery](design-review/whole-site/index.html)
+- [Expanded navbar, desktop](design-review/whole-site/navbar-desktop.png)
+- [Expanded navbar, phone](design-review/whole-site/navbar-mobile.png)
+- [Navbar verification and accessibility](design-review/whole-site/navbar-verification.json)
+- [Site-wide verification](design-review/whole-site/verification.json)
+- [Site-wide accessibility report](design-review/whole-site/accessibility.json)
+- [Homepage and navbar verification](design-review/celebration-home/verification.json)
+- [Design review notes](design-review/whole-site/README.md)
 
 ## Implementation
 
-| File | Purpose |
-| --- | --- |
-| `vendeze-connected/site-design.css` | Consolidated palette, layouts, responsive rules, 404, and logo/name animation |
-| `vendeze-connected/brand-loader.js` | Initial introduction, skip/reduced-motion behavior, and loading recovery |
-| `vendeze-connected/homepage-design.js` | Homepage presentation and shared vendor imagery |
-| `vendeze-connected/ui-design.js` | Shared vendor-card presentation and category images |
-| `vendeze-connected/script.js` | Screens, branded 404, validation, keyboard navigation, focus, and notifications |
-| `vendeze-connected/index.html` | Loading markup, app fallback, theme assets, and accessible notification controls |
-| `vendeze-connected/service-worker.js` | Version 15 cached app shell and brand-loading assets |
+`vendeze-connected/app-design.css` contains the application design system. `homepage-design.css` keeps the homepage composition. `ui-design.js` applies shared page banners and footers while preserving screen controls. `script.js` retains the application flows and renders the updated sign-in screen. `navigation.js` and `navigation.css` own the shared navbar and its content. The version 20 service worker includes both files and the navigation photographs.
 
-No framework, backend, Java, SQL, schema, or runtime dependency was added. Asset/cache versions were updated together. Images remain illustrative sample content; see [asset notes](vendeze-connected/assets/README.md).
+No framework, runtime dependency, backend, or schema change was introduced. Images remain illustrative, with sources in `vendeze-connected/assets/README.md`.
 
-## Running and scope
+## Running
 
-From the extracted review folder or repository root:
+From the repository root:
 
 ```powershell
 python -m http.server 8005 --bind 127.0.0.1
 ```
 
-Open `http://127.0.0.1:8005/UI_UX_REVIEW.html`. On macOS/Linux, use `python3`.
-
-Application review links retain `?preview=1`, which blocks API requests and stores sample activity under `vendeze-ui-preview-v1`, separate from `vendeze-state-v2`. The review verifies frontend sample behavior. Backend persistence, real availability, authentication, message delivery, and payments were not exercised. Final content and legal/support destinations need owner confirmation before release.
-
-Earlier artifacts remain in `design-review/` for reference. The current candidate uses `design-review/final-ui-review/`.
+Open `http://127.0.0.1:8005/UI_UX_REVIEW.html`. Keep `?preview=1` in application review links to use isolated browser sample data. Older review packages and screenshots remain historical artifacts.

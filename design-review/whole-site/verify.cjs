@@ -1,0 +1,202 @@
+const { chromium } = require(require('path').join(require('os').tmpdir(),'vendeze-ui-qa','node_modules','playwright'));
+const fs = require('fs');
+const path = require('path');
+const output = __dirname;
+fs.mkdirSync(output, { recursive: true });
+const checks = [], errors = [], responses = [], requests = [], accessibility = [];
+function check(ok, label) { if (!ok) throw new Error(label); checks.push(label); }
+async function main() {
+  const browser = await chromium.launch({ executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe', headless:true });
+  const context = await browser.newContext({ viewport:{width:1440,height:1000}, reducedMotion:'reduce' });
+  const page = await context.newPage();
+  page.on('pageerror', e => errors.push(e.message));
+  page.on('response', r => { if(r.status() >= 400 && r.url().startsWith('http://127.0.0.1:8003')) responses.push({url:r.url(),status:r.status()}); });
+  page.on('request', r => { if(r.url().includes('localhost:8080')) requests.push(r.url()); });
+  await page.addInitScript(() => { localStorage.setItem('vendeze-state-v2','preserved-original-data'); });
+  const go = async (hash) => {
+    await page.evaluate(h => { location.hash = h; }, hash);
+    await page.waitForFunction(h => location.hash === h && document.querySelector('#app').children.length > 0, hash);
+    // Let hash routing, resize observers, and layout finish before checking bounds.
+    await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+  };
+  const snapshot = async (name, fullPage=true) => {
+    if(page.viewportSize().width === 1440 || page.viewportSize().width === 390) {
+      if(!await page.evaluate(()=>!!window.axe)) await page.addScriptTag({path:'C:/Users/HP VICTUS/AppData/Local/Temp/vendeze-ui-qa/node_modules/axe-core/axe.min.js'});
+      const result = await page.evaluate(async()=>{const r=await axe.run(document,{runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21a','wcag21aa','wcag22aa','best-practice']}});return {violations:r.violations.map(v=>({id:v.id,impact:v.impact,description:v.description,nodes:v.nodes.map(n=>({target:n.target,summary:n.failureSummary}))})),incomplete:r.incomplete.map(v=>({id:v.id,count:v.nodes.length}))};});
+      accessibility.push({screen:name,width:page.viewportSize().width,...result});
+    }
+    await page.locator('#app img').evaluateAll(async imgs => { await Promise.all(imgs.map(async img => { img.loading='eager'; try { await img.decode(); } catch {} })); });
+    await page.evaluate(() => scrollTo(0,0));
+    await page.screenshot({path:path.join(output,name+'.png'),fullPage,style:'.toast-host{visibility:hidden!important}'});
+  };
+  page.setDefaultTimeout(10000);
+  const response = await page.goto('http://127.0.0.1:8003/?preview=1#/', {waitUntil:'networkidle'});
+  check(response.status()===200,'Site preview serves successfully');
+  check((await page.locator('#homeTitle').innerText()).includes('GOOD TIMES.'),'Approved homepage remains in place');
+  await page.locator('#homeSearchInput').fill('photography');
+  await page.locator('#homeSearchArea').selectOption('Kallady');
+  await page.locator('#homeSearchForm [type=submit]').click();
+  await page.locator('#searchResults .vendor-card').waitFor();
+  check(await page.locator('#searchResults .vendor-card').count()===1,'Homepage search still filters by service and area');
+  check((await page.locator('#headerNav .shared-nav-trigger.active').innerText()).trim()==='Explore','Navigation marks the active customer screen');
+  check(await page.locator('.vendor-name').innerText()==='Kallady Lens Co.','Search cards retain the matching vendor');
+  await page.locator('.wishlist-btn').click();
+  check(await page.locator('.wishlist-btn').getAttribute('aria-pressed')==='true','Vendor cards can save a listing');
+  await go('#/saved');
+  check(await page.locator('.vendor-card').count()===1,'Saved page displays the selected listing');
+  await page.reload({waitUntil:'networkidle'});
+  check(await page.locator('.vendor-card').count()===1,'Saved vendors persist after refreshing');
+  await go('#/event');
+  await page.locator('#continueBtn').click();
+  check(await page.locator('#formError').isVisible(),'Event form still validates missing details');
+  const date = await page.evaluate(() => {
+    for(let i=20;i<=30;i++) { const date='2027-06-'+i; if(availabilityFor(1,date)==='available') return date; }
+    throw new Error('No sample date for vendor 1');
+  });
+  await page.locator('#f-name').fill('Vendeze design review');
+  await page.locator('[data-type="Wedding"]').click();
+  await page.locator('#f-date').fill(date);
+  await page.locator('#f-time').fill('16:00');
+  await page.locator('#f-guests').fill('200');
+  await page.locator('#f-location').fill('Kallady, Batticaloa');
+  await page.locator('#continueBtn').click();
+  await page.locator('.cat-grid.services').waitFor();
+  check(await page.locator('.services .cat-card').count()===6,'Event creation opens all six services');
+  check((await page.locator('.summary-facts').innerText()).includes('Vendeze design review'),'Event summary carries through the customer journey');
+  await page.locator('[data-action="category"][data-id="photo"]').last().click();
+  await page.locator('.category-heading').waitFor();
+  check(await page.locator('.vendor-card').count()===3,'Category page shows its matching vendors');
+  await go('#/vendor/1');
+  await page.locator('#packageList .package-card').nth(1).click();
+  check(await page.locator('#packageList .package-card').nth(1).getAttribute('aria-checked')==='true','Package selection retains its accessible state');
+  const price=await page.locator('#bookBarPrice').innerText();
+  check(price.includes('35,000'),'Booking bar reflects the selected package price');
+  await page.locator('#chatInput').fill('Sample design review message');
+  await page.locator('#chatSendBtn').click();
+  check((await page.locator('#chatLog').innerText()).includes('Sample design review message'),'Vendor chat remains usable');
+  await page.locator('#holdBtn').click();
+  await page.locator('.book-bar [data-action=cart]').click();
+  await page.locator('.cart-item').waitFor();
+  check((await page.locator('.cart-item').innerText()).includes('Full Day Coverage'),'Hold list retains the selected package');
+  await snapshot('hold-list-desktop');
+  await page.setViewportSize({width:390,height:844});
+  check(await page.locator('#notifBtn').isVisible(),'Notification button stays accessible on phones');
+  await page.locator('#notifBtn').click();
+  check(await page.locator('#notifPanel').isVisible(),'Phone notification button opens its panel');
+  check(await page.locator('#notifPanel').evaluate(el=>{const r=el.getBoundingClientRect();return r.left>=0&&r.right<=innerWidth&&r.top>0;}),'Phone notification panel stays within the viewport');
+  await page.keyboard.press('Escape');
+  await snapshot('hold-list-mobile');
+  await page.setViewportSize({width:1440,height:1000});
+  await page.locator('[data-action="remove-cart"]').click();
+  await page.locator('.cart-empty').waitFor();
+  check(await page.locator('.cart-item').count()===0,'Hold list removal reaches an empty state');
+  await page.locator('[data-action="undo-remove"]').click();
+  await page.locator('.cart-item').waitFor();
+  check(await page.locator('.cart-item').count()===1,'Undo restores the removed hold');
+  await page.locator('[data-action="checkout"]').click();
+  await page.locator('#checkoutForm').waitFor();
+  await page.locator('#payBtn').click();
+  check(await page.locator('#checkoutError').isVisible(),'Checkout retains contact validation');
+  await page.locator('.pay-card[data-type="full"]').click();
+  check(!await page.locator('#dueLaterRow').isVisible(),'Payment selection updates the amount summary');
+  await page.locator('.pay-card[data-type="advance"]').click();
+  check(await page.locator('#dueLaterRow').isVisible(),'Advance payment restores the remaining balance');
+  await snapshot('checkout-desktop');
+  await page.setViewportSize({width:390,height:844});
+  await snapshot('checkout-mobile');
+  await page.setViewportSize({width:1440,height:1000});
+  await page.locator('#co-name').fill('Design review customer');
+  await page.locator('#co-phone').fill('0771234567');
+  await page.locator('#payBtn').click();
+  await page.locator('.confirm-wrap').waitFor();
+  check((await page.locator('.confirm-title').textContent()).includes('preview'),'Sample checkout reaches its confirmation');
+  await go('#/bookings');
+  check((await page.locator('.booking-group').innerText()).includes('Vendeze design review'),'Bookings page displays the created sample booking');
+  await go('#/search');
+  await page.locator('#searchInput').fill('no-match-for-this-query');
+  await page.waitForFunction(()=>document.querySelector('.results-count')?.textContent.includes('0 vendors'));
+  check(await page.locator('.cart-empty').isVisible(),'Search has a usable empty state');
+  await page.locator('#clearFilters').click();
+  check(await page.locator('.vendor-card').count()===16,'Clear filters restores all sample listings');
+  await page.locator('#notifBtn').click();
+  check(await page.locator('#notifPanel').isVisible(),'Notification panel opens with the shared design');
+  check(await page.locator('#notifPanel').evaluate(el=>{const r=el.getBoundingClientRect();const b=document.getElementById('notifBtn').getBoundingClientRect();return r.left>=0&&r.right<=innerWidth&&Math.abs(r.top-b.bottom-10)<2;}),'Desktop notifications anchor below their button');
+  await page.keyboard.press('Escape');
+  check(!await page.locator('#notifPanel').isVisible(),'Escape closes notifications');
+  // Restore the sample hold only inside the isolated test context for layout coverage.
+  await page.evaluate(()=>{ state.cart=state.lastOrder.map(({lineTotal,...item})=>item); });
+  const customerRoutes=[['home','#/'],['event','#/event'],['services','#/services'],['category','#/category/photo'],['vendor','#/vendor/1'],['search','#/search'],['saved','#/saved'],['hold-list','#/cart'],['checkout','#/checkout'],['confirmation','#/confirm'],['profile','#/profile'],['bookings','#/bookings'],['not-found','#/missing-review-route']];
+  const layout = async (name, hash, width, capture=true) => {
+    await page.setViewportSize({width,height:width<500?844:1000});
+    await go(hash);
+    const bounds=await page.evaluate(()=>({width:innerWidth,scroll:document.documentElement.scrollWidth,containers:[...document.querySelectorAll('.header-inner,#app>.section,.event-layout,.cart-wrap,.confirm-wrap,.login-wrap,.book-bar')].filter(e=>e.getClientRects().length).map(e=>({class:e.className,left:e.getBoundingClientRect().left,right:e.getBoundingClientRect().right})).filter(e=>e.left < -1 || e.right > innerWidth+1)}));
+    check(bounds.scroll<=width && !bounds.containers.length,`${name} fits ${width}px`+(!bounds.containers.length?'':JSON.stringify(bounds.containers)));
+    const font=await page.locator('#app h1,#app h2').first().evaluate(e=>getComputedStyle(e).fontFamily);
+    check(font.includes('Anton'),`${name} uses the celebration typography at ${width}px`);
+    if(capture && [390,1440].includes(width)) await snapshot(name+(width===390?'-mobile':'-desktop'),name!=='home');
+  };
+  for(const width of [320,360,390,768,1024,1440]) {
+    for(const [name,hash] of customerRoutes) await layout(name,hash,width);
+  }
+  console.log('Customer journey and customer layouts passed:',checks.length);
+  await page.setViewportSize({width:1440,height:1000});
+  await go('#/login');
+  await page.locator('#signInBtn').click();
+  check(await page.locator('#signInError').isVisible(),'Sign-in still validates missing credentials');
+  await page.locator('#tabSignUp').click();
+  await page.locator('#su-password').fill('SamplePassword7');
+  await page.locator('#signUpPanel .pw-toggle').click();
+  check(await page.locator('#su-password').getAttribute('type')==='text','Signup password visibility control works');
+  await page.locator('[data-role="VENDOR"]').click();
+  check(await page.locator('#vendorExtraFields').isVisible(),'Vendor signup exposes its business fields');
+  for(const width of [320,360,390,768,1024,1440]) {
+    await page.setViewportSize({width,height:width<500?844:1000});
+    check(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),`Vendor signup fits ${width}px`);
+    if([390,1440].includes(width)) await snapshot('signup'+(width===390?'-mobile':'-desktop'));
+  }
+  await page.locator('#tabSignIn').click();
+  for(const width of [320,360,390,768,1024,1440]) await layout('login','#/login',width);
+  // Exercise the existing demo login and role navigation; preview mode blocks API calls.
+  await page.setViewportSize({width:1440,height:1000});
+  await page.locator('[data-action="show-google-accounts"]').click();
+  await page.locator('[data-action="google-login"][data-id="v1"]').click();
+  await page.locator('#jobRequests').waitFor();
+  check(await page.locator('.job-card').count()===1,'Vendor demo login receives the sample customer request');
+  check((await page.locator('#headerNav .shared-nav-trigger.active').innerText()).trim()==='For businesses','Vendor navigation marks its workspace');
+  for(const width of [320,360,390,768,1024,1440]) await layout('vendor-dashboard','#/dashboard',width);
+  await page.locator('[data-action="job-accept"]').click();
+  check(await page.locator('.job-card').count()===0,'Vendor can accept the sample request');
+  await page.evaluate(async()=>{await loginAs('a1');});
+  await page.locator('#userAdminList').waitFor();
+  for(const width of [320,360,390,768,1024,1440]) {
+    await layout('admin','#/admin',width);
+    await layout('marketing','#/marketing',width);
+  }
+  await go('#/admin');
+  await page.locator('#sharedNav-business').hover();
+  await page.locator('#sharedNavDetails [data-action="marketing"]').click();
+  await page.locator('#adsList').waitFor();
+  check((await page.locator('#headerNav .shared-nav-trigger.active').innerText()).trim()==='For businesses','Admin navigation switches between overview and marketing');
+  await page.locator('#newAdText').fill('Design review sample promotion');
+  await page.locator('#addAdBtn').click();
+  check((await page.locator('#adsList').innerText()).includes('Design review sample promotion'),'Marketing controls remain interactive in preview mode');
+  await page.evaluate(async()=>{await loginAs('d1');});
+  await page.locator('#editHeroBtn').waitFor();
+  for(const width of [320,360,390,768,1024,1440]) await layout('developer','#/developer',width);
+  check((await page.locator('#headerNav .shared-nav-trigger.active').innerText()).trim()==='For businesses','Developer navigation marks its workspace');
+  await page.evaluate(async()=>{await loginAsGuest();});
+  await page.evaluate(()=>{location.hash='#/admin';});
+  await page.waitForFunction(()=>location.hash==='#/' && document.body.classList.contains('is-marketplace-home'));
+  await page.locator('.marketplace-home').waitFor();
+  check(await page.locator('body').evaluate(e=>e.classList.contains('is-marketplace-home')),'Unauthorized staff route safely returns to the approved homepage');
+  check(await page.evaluate(()=>localStorage.getItem('vendeze-state-v2'))==='preserved-original-data','Preview leaves original application data untouched');
+  check(errors.length===0,'No browser runtime errors');
+  check(responses.length===0,'No failed local asset responses');
+  check(requests.length===0,'Preview makes no backend API requests');
+  fs.writeFileSync(path.join(output,'verification.json'),JSON.stringify({passed:checks.length,checks,browserErrors:errors,failedResponses:responses,backendRequests:requests,scope:'Customer and staff frontend in isolated preview mode; no backend integration or real payments exercised.'},null,2));
+  fs.writeFileSync(path.join(output,'accessibility.json'),JSON.stringify({tool:'axe-core',screens:accessibility,violationCount:accessibility.reduce((sum,s)=>sum+s.violations.length,0)},null,2));
+  if(errors.length||responses.length||requests.length||accessibility.some(s=>s.violations.length)) throw new Error('Review reported runtime, asset, API, or accessibility failures; see the JSON reports.');
+  console.log(JSON.stringify({passed:checks.length,errors,responses,requests,accessibility:accessibility.filter(s=>s.violations.length).map(s=>({screen:s.screen,width:s.width,violations:s.violations.map(v=>({id:v.id,count:v.nodes.length,targets:v.nodes.slice(0,2).map(n=>n.target)}))}))}));
+  await browser.close();
+}
+main().catch(e=>{console.error(e);console.error(JSON.stringify({passed:checks.length,last:checks.slice(-4)}));process.exit(1);});

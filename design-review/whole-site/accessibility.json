@@ -1,0 +1,443 @@
+{
+  "tool": "axe-core",
+  "screens": [
+    {
+      "screen": "hold-list-desktop",
+      "width": 1440,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "count": 5
+        }
+      ]
+    },
+    {
+      "screen": "hold-list-mobile",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "screen": "checkout-desktop",
+      "width": 1440,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "screen": "checkout-mobile",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "screen": "home-mobile",
+      "width": 390,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "aria-prohibited-attr",
+          "count": 5
+        },
+        {
+          "id": "color-contrast",
+          "count": 37
+        }
+      ]
+    },
+    {
+      "screen": "event-mobile",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "screen": "services-mobile",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "screen": "category-mobile",
+      "width": 390,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "aria-prohibited-attr",
+          "count": 3
+        },
+        {
+          "id": "color-contrast",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "screen": "vendor-mobile",
+      "width": 390,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "aria-prohibited-attr",
+          "count": 2
+        },
+        {
+          "id": "color-contrast",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "screen": "search-mobile",
+      "width": 390,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "aria-prohibited-attr",
+          "count": 16
+        },
+        {
+          "id": "color-contrast",
+          "count": 16
+        }
+      ]
+    },
+    {
+      "screen": "saved-mobile",
+      "width": 390,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "aria-prohibited-attr",
+          "count": 1
+        },
+        {
+          "id": "color-contrast",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "screen": "hold-list-mobile",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "screen": "checkout-mobile",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "screen": "confirmation-mobile",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "screen": "profile-mobile",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "screen": "bookings-mobile",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "screen": "not-found-mobile",
+      "width": 390,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "screen": "home-desktop",
+      "width": 1440,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "aria-prohibited-attr",
+          "count": 5
+        },
+        {
+          "id": "color-contrast",
+          "count": 28
+        }
+      ]
+    },
+    {
+      "screen": "event-desktop",
+      "width": 1440,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "screen": "services-desktop",
+      "width": 1440,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "screen": "category-desktop",
+      "width": 1440,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "aria-prohibited-attr",
+          "count": 3
+        },
+        {
+          "id": "color-contrast",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "screen": "vendor-desktop",
+      "width": 1440,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "aria-prohibited-attr",
+          "count": 2
+        },
+        {
+          "id": "color-contrast",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "screen": "search-desktop",
+      "width": 1440,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "aria-prohibited-attr",
+          "count": 16
+        },
+        {
+          "id": "color-contrast",
+          "count": 18
+        }
+      ]
+    },
+    {
+      "screen": "saved-desktop",
+      "width": 1440,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "aria-prohibited-attr",
+          "count": 1
+        },
+        {
+          "id": "color-contrast",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "screen": "hold-list-desktop",
+      "width": 1440,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "count": 5
+        }
+      ]
+    },
+    {
+      "screen": "checkout-desktop",
+      "width": 1440,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "screen": "confirmation-desktop",
+      "width": 1440,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "screen": "profile-desktop",
+      "width": 1440,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "screen": "bookings-desktop",
+      "width": 1440,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "screen": "not-found-desktop",
+      "width": 1440,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "screen": "signup-mobile",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "screen": "signup-desktop",
+      "width": 1440,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "screen": "login-mobile",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "screen": "login-desktop",
+      "width": 1440,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "screen": "vendor-dashboard-mobile",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "screen": "vendor-dashboard-desktop",
+      "width": 1440,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "screen": "admin-mobile",
+      "width": 390,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "count": 7
+        }
+      ]
+    },
+    {
+      "screen": "marketing-mobile",
+      "width": 390,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "screen": "admin-desktop",
+      "width": 1440,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "count": 10
+        }
+      ]
+    },
+    {
+      "screen": "marketing-desktop",
+      "width": 1440,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "screen": "developer-mobile",
+      "width": 390,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "screen": "developer-desktop",
+      "width": 1440,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "count": 4
+        }
+      ]
+    }
+  ],
+  "violationCount": 0
+}

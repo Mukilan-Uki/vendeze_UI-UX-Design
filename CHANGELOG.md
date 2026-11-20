@@ -1,5 +1,44 @@
 # Vendeze — v2 front-end update
 
+## Shared expanding navbar version 20 - 20 November 2026
+
+- Replaced separate homepage and application navigation with one shared component on all customer, sign-in, and staff screens.
+- Added hover panels that expand the navbar in width and height, with detailed links on the left and an image, title, and description on the right.
+- Added responsive phone menus, touch and keyboard controls, Escape focus restoration, outside-click dismissal, role-aware workspace links, and route cleanup. Retained burgundy styling and the scroll animation.
+- Updated application caching to version 20 and refreshed the desktop/phone gallery. Site-wide validation passed 267 checks and 42 accessibility scans; 141 expanded-navbar checks and nine accessibility scans also passed. Results are in `design-review/whole-site/navbar-verification.json`.
+
+## Complete site design version 19 - 20 November 2026
+
+- Extended the Partiful-inspired burgundy design to every customer, account, and staff screen, with shared page banners, typography, forms, cards, summaries, navigation, and footers.
+- Added colorful service and dashboard cards and a new sign-in composition; preserved the event, booking, vendor, and staff flows.
+- Applied the scroll navbar behavior across inner pages, kept open notifications visible, and positioned notification panels within phone and desktop viewports.
+- Updated app caching to version 19. Site-wide checks passed 267 assertions and 42 accessibility scans; the homepage/navigation regression review passed 93 checks and three scans.
+- Added the desktop/phone gallery at `design-review/whole-site/` and refreshed the review hub and handoff.
+
+## Homepage version 18 ? 20 November 2026
+
+- Added Partiful-style navbar motion: slide away on downward scrolling and return on upward scrolling with 280ms easing.
+- Keep the navbar visible near the top, while its menu is open, during keyboard focus, and when reduced motion is enabled. Clean up scroll listeners on route changes.
+- Updated app caching to version 18.
+
+## Homepage version 18 ? 20 November 2026
+
+- Added the Partiful-style floating navbar slide: hides while scrolling down and reveals while scrolling up, with a 280 ms transition and small-movement tolerance.
+- Kept navigation visible at the top, during keyboard use and open menus, and for reduced-motion users. Scroll listeners are removed on route changes.
+- Updated the app cache to version 18; 93 browser checks and three accessibility scans passed.
+
+## Homepage version 17 ? 20 November 2026
+
+- Made Vendeze burgundy (`#8E0413`) the primary homepage color across the hero, navigation, headings, buttons, and closing section, with blush surfaces and deep burgundy for the planning section.
+- Retained the Partiful-inspired layout and colorful occasion accents; updated app caching to version 17.
+
+## Homepage version 16 · 20 November 2026
+
+- Rebuilt the customer homepage around the Partiful reference: a black hero, floating navigation, oversized headings, colorful occasion posters, a dark planning section, and lime/lilac accents.
+- Connected occasion posters to the existing event form, added service filtering to the homepage vendor collection, and retained search, saved vendors, account access, and event plans.
+- Added responsive phone layouts, keyboard navigation, reduced-motion support, local celebration imagery, and version 16 app caching.
+- See [the homepage review](HOMEPAGE_REVIEW.md) for the local preview, screenshots, and browser verification.
+
 ## New brand
 - New party-popper logo throughout: header (mark + wordmark), sign-in screen, welcome popup, booking confirmation.
 - Transparent white and dark logo files in `vendeze-connected/icons/` (`logo-full-*`, `logo-mark-*`, `logo-word-*`).

@@ -16,6 +16,38 @@ const DESIGN_OCCASIONS = {
 };
 let designOccasion = 'Wedding';
 
+/* Apply the shared presentation after a screen renders, preserving its controls. */
+function applyCelebrationAppDesign() {
+  const home = document.body.classList.contains('is-marketplace-home');
+  document.body.classList.toggle('is-celebration-app', !home);
+  document.body.dataset.role = state.user?.role || 'customer';
+  const footer = document.getElementById('siteFooterSlot');
+  if (home) {
+    if (footer) footer.innerHTML = '';
+    return;
+  }
+  const app = document.getElementById('app');
+  if (state.view.name !== 'profile') {
+    app.querySelectorAll(':scope > .section > h1.page-title, :scope > .cart-wrap > h1.page-title').forEach(title => {
+      const description = title.nextElementSibling;
+      const banner = document.createElement('div');
+      banner.className = 'app-page-banner';
+      title.before(banner);
+      banner.append(title);
+      if (description?.tagName === 'P') {
+        description.classList.add('page-sub');
+        description.style.removeProperty('color');
+        banner.append(description);
+      }
+    });
+  }
+  if (footer) {
+    const role = state.user?.role || 'customer';
+    const workspace = { vendor: ['vendor-dashboard', 'Your dashboard'], admin: ['admin', 'Your workspace'], developer: ['developer', 'Your workspace'] }[role];
+    footer.innerHTML = `<footer class="app-site-footer"><div class="app-site-footer-inner"><div><img src="icons/logo-word-white.png" alt="Vendeze" width="150" height="20"><p>Good people. Good plans. Good times.</p></div><nav aria-label="More from Vendeze"><button data-action="go-home">${workspace ? 'Your home' : 'Home'}</button>${workspace ? `<button data-action="${workspace[0]}">${workspace[1]}</button>` : '<button data-action="search">Explore vendors</button><button data-action="create-event">Plan an event</button>'}<button data-action="profile">Your account</button></nav><p>Made for Batticaloa.</p></div></footer>`;
+  }
+}
+
 function designPhoto(category, variant = 0, eager = false) {
   const images = DESIGN_PHOTOS[category] || DESIGN_PHOTOS.decor;
   return `<img class="service-photo" src="assets/${images[Math.abs(Number(variant)) % images.length]}.jpg" alt="Illustrative ${esc(CATEGORIES.find(c => c.id === category)?.name.toLowerCase() || 'event')} inspiration" loading="${eager ? 'eager' : 'lazy'}" decoding="async" />`;

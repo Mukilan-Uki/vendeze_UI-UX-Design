@@ -16,7 +16,7 @@
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <script>
   document.documentElement.classList.add('is-booting');
   window.VENDEZE_BOOT_TIMEOUT = setTimeout(() => {
@@ -27,7 +27,10 @@
 </script>
 <link rel="preload" as="image" href="icons/logo-mark-dark.png">
 <link rel="preload" as="image" href="icons/logo-word-dark.png">
-<link rel="stylesheet" href="site-design.css?v=15">
+<link rel="stylesheet" href="site-design.css?v=20">
+<link rel="stylesheet" href="app-design.css?v=20">
+<link rel="stylesheet" href="homepage-design.css?v=20">
+<link rel="stylesheet" href="navigation.css?v=20">
 </head>
 <body>
 <svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute;pointer-events:none;">
@@ -47,12 +50,13 @@
   <button class="brand-loader-skip" id="skipBrandIntro" type="button">Skip intro</button>
 </div>
 <a class="skip-link" href="#app">Skip to content</a>
-<script src="brand-loader.js?v=15"></script>
+<script src="brand-loader.js?v=20"></script>
 
 <div id="appShell">
 
 <header class="header" id="mainHeader">
   <div class="header-inner">
+    <div class="shared-nav-bar">
     <button class="logo-btn" data-action="go-home" aria-label="Vendeze home">
       <img class="logo-mark" src="icons/logo-mark-dark.png" alt="" width="26" height="34" />
       <img class="logo-word" src="icons/logo-word-dark.png" alt="Vendeze" width="112" height="14" />
@@ -72,12 +76,22 @@
         <span id="cartCount">0</span>
       </button>
       <button class="profile-chip" id="profileChip" data-action="profile" aria-label="Profile"></button>
+      <button class="shared-nav-account" id="sharedAccountButton" data-nav-menu="account" aria-expanded="false" aria-controls="sharedNavPanel">Log in</button>
+      <button class="shared-nav-toggle" id="sharedNavToggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="sharedNavPanel"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+    </div>
+    </div>
+    <div class="shared-nav-panel" id="sharedNavPanel" role="region" aria-label="Navigation details" aria-hidden="true" inert>
+      <div class="shared-nav-content" id="sharedNavContent">
+        <nav class="shared-nav-mobile-tabs" id="sharedNavMobileTabs" aria-label="Main navigation"></nav>
+        <div id="sharedNavDetails"></div>
+      </div>
     </div>
   </div>
 </header>
 
 <div id="summaryBarSlot"></div>
 <main id="app" tabindex="-1"><div class="app-load-fallback" data-app-fallback><h1>Good things take a moment.</h1><p>If Vendeze takes longer than expected, please refresh this page.</p><a class="marketplace-button" href="">Refresh Vendeze</a></div></main>
+<div id="siteFooterSlot"></div>
 <div id="bottomNavSlot"></div>
 <div id="popupSlot"></div>
 
@@ -92,9 +106,10 @@
   window.VENDEZE_API_BASE = window.VENDEZE_API_BASE || 'http://localhost:8080';
 </script>
 <script src="api.js"></script>
-<script src="ui-design.js?v=15"></script>
-<script src="homepage-design.js?v=15"></script>
-<script src="script.js?v=15"></script>
+<script src="ui-design.js?v=20"></script>
+<script src="homepage-design.js?v=20"></script>
+<script src="navigation.js?v=20"></script>
+<script src="script.js?v=20"></script>
 <script>
 if ('serviceWorker' in navigator && location.protocol !== 'file:') {
   window.addEventListener('load', () => {

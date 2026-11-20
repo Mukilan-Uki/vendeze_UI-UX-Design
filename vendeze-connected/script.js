@@ -339,9 +339,10 @@ function renderLogin(){
   return `
   <div class="login-wrap">
     <div class="login-brand">
-      <img class="login-logo" src="icons/logo-full-white.png" alt="Vendeze" width="220" height="172" />
+      <img class="login-logo" src="icons/logo-word-white.png" alt="Vendeze" width="200" height="27" />
       <p class="login-tagline mono">PLAN · BOOK · CELEBRATE</p>
       <p class="login-sub">Good people.<br>Great celebrations.<br><em>Your story starts here.</em></p>
+      <div class="login-photo-poster"><img src="assets/party.jpg" alt="Friends celebrating together beneath warm party lights"><span>THESE ARE<br>THE DAYS.</span><span class="login-photo-sticker" aria-hidden="true">GOOD<br>THINGS<br>AHEAD.</span></div>
     </div>
     <div class="login-card">
       <button class="login-back" data-action="guest-login">Explore as a guest</button>
@@ -1560,6 +1561,8 @@ function renderNotFound(){
 ============================================================ */
 const STAFF_VIEWS = { vendorDashboard:'vendor', admin:'admin', marketing:'admin', developer:'developer' };
 function render(){
+  setupMarketplaceNav.cleanup?.();
+  setupSharedNavigation.cleanup?.();
   const app = document.getElementById('app');
   const header = document.getElementById('mainHeader');
   const previousView = render.previousView;
@@ -1569,9 +1572,16 @@ function render(){
   document.body.dataset.view = state.view.name;
   document.body.classList.remove('is-marketplace-home');
   if(state.view.name === 'login'){
-    header.style.display = 'none';
+    header.style.display = '';
     app.innerHTML = renderLogin();
     setupLoginScreen();
+    closeNotifications();
+    updateCartBadge();
+    updateProfileChip();
+    updateHeaderNav();
+    updateNotifBadge();
+    setupMarketplaceNav();
+    applyCelebrationAppDesign();
     renderSummaryBar();
     document.getElementById('bottomNavSlot').innerHTML = '';
     document.getElementById('popupSlot').innerHTML = '';
@@ -1626,6 +1636,8 @@ function render(){
   updateCartBadge();
   updateProfileChip();
   updateHeaderNav();
+  applyCelebrationAppDesign();
+  setupMarketplaceNav();
   updateNotifBadge();
   if(!window.VENDEZE_UI_PREVIEW) renderPopupIfNeeded();
   updatePageTitle();
@@ -1689,31 +1701,7 @@ function updateProfileChip(){
 }
 
 function updateHeaderNav(){
-  const nav = document.getElementById('headerNav');
-  if(!nav) return;
-  const role = state.user ? state.user.role : 'customer';
-  if(state.view.name === 'login'){
-    nav.innerHTML = '';
-    return;
-  }
-  if(role !== 'customer'){
-    const staffItems = {
-      vendor: [{ label:'Dashboard', action:'vendor-dashboard', view:'vendorDashboard' }],
-      admin: [{ label:'Overview', action:'admin', view:'admin' }, { label:'Marketing', action:'marketing', view:'marketing' }],
-      developer: [{ label:'Workspace', action:'developer', view:'developer' }],
-    };
-    const items = [...(staffItems[role] || []), { label:'My profile', action:'profile', view:'profile' }];
-    nav.innerHTML = items.map((item, index) => {
-      const active = state.view.name === item.view || (state.view.name === 'home' && index === 0);
-      return `<button class="header-nav-link${active ? ' active' : ''}" data-action="${item.action}"${active ? ' aria-current="page"' : ''}>${item.label}</button>`;
-    }).join('');
-    return;
-  }
-  const items = customerNavItems();
-  items.splice(2, 0, { label: state.event ? 'My event' : 'Create event', action:'create-event', isActive: state.view.name==='createEvent' });
-  nav.innerHTML = items.filter(i=>i.action!=='cart').map(i =>
-    `<button class="header-nav-link${i.isActive?' active':''}" data-action="${i.action}" ${i.isActive?'aria-current="page"':''}>${i.label}${i.badge && i.action==='saved' ? ` <span class="hn-count">${i.badge}</span>` : ''}</button>`
-  ).join('');
+  renderSharedNavigation();
 }
 
 // one shared notification store, filtered per viewer — a booking a customer
@@ -1777,8 +1765,12 @@ function toggleNotifPanel(){
   let left = btnRect.right - panelWidth;
   left = Math.max(12, Math.min(left, window.innerWidth - panelWidth - 12));
   panel.style.width = panelWidth + 'px';
-  panel.style.left = left + 'px';
-  panel.style.top = (btnRect.bottom + 10) + 'px';
+  // The animated, blurred navbar is the fixed panel's containing block.
+  const anchor = document.body.classList.contains('has-shared-nav')
+    ? document.querySelector('.header-inner').getBoundingClientRect()
+    : { left:0, top:0 };
+  panel.style.left = (left - anchor.left) + 'px';
+  panel.style.top = (btnRect.bottom + 10 - anchor.top) + 'px';
 }
 function closeNotifications(restoreFocus = false){
   const panel = document.getElementById('notifPanel');
@@ -2691,7 +2683,7 @@ window.addEventListener('resize', () => {
   clearTimeout(resizeTimer);
   resizeTimer = setTimeout(() => {
     const d = window.innerWidth >= 1024;
-    if(d !== lastDesktop && state.view.name !== 'login'){ lastDesktop = d; renderSummaryBar(); renderBottomNav(); updateHeaderNav(); }
+    if(d !== lastDesktop && state.view.name !== 'login'){ lastDesktop = d; renderSummaryBar(); renderBottomNav(); }
   }, 150);
 });
 
